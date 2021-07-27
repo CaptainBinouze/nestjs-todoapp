@@ -12,7 +12,7 @@ export class TodoController {
         private readonly todoService: TodoService,
     ) {}
 
-    @UseGuards(AuthGuard('local'))
+    //@UseGuards(AuthGuard('local'))
     @Get()
     async findAll(): Promise<Todo[]> {
         return this.todoService.getAllTodos();

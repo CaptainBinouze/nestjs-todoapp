@@ -23,7 +23,3 @@ export const UserSchema = new mongoose.Schema({
     versionKey: false,
     timestamps: true
 })
-
-UserSchema.methods.validatePassword = async function validatePassword(data: string): Promise<Boolean> {
-    return bcrypt.compare(data, this.password_hash);
-  };
