@@ -17,6 +17,10 @@ export class UsersService {
         return await this.userModel.findOne({_id: id})
     }  
 
+    async getOneUserByUsername(username: string): Promise<User> {
+        return await this.userModel.findOne({username: username})
+    }
+
     async getAllUsers(): Promise<User[]> {
         return await this.userModel.find({})
     }
@@ -25,7 +29,7 @@ export class UsersService {
         return await this.userModel.create(createUserDto)
     }
 
-    async deleteUser(username: string): Promise<User> { 
-        return await this.userModel.findOneAndRemove({username: username})
+    async deleteUser(id: string): Promise<User> { 
+        return await this.userModel.findOneAndRemove({_id: id})
     }
 }

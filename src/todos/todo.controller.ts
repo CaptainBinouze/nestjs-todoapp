@@ -3,7 +3,7 @@ import { TodoService } from './todo.service';
 import { Todo } from './interfaces/todo.interface';
 import { CreateTodoDto } from './dto/create-todo.dto';
 import { UpdateTodoDto } from './dto/update-todo.dto';
-import { AuthGuard } from '@nestjs/passport';
+import { JwtAuthGuard } from 'src/auth/jwt-auth.guard';
 
 @Controller('todo')
 export class TodoController {
@@ -12,7 +12,7 @@ export class TodoController {
         private readonly todoService: TodoService,
     ) {}
 
-    //@UseGuards(AuthGuard('local'))
+    @UseGuards(JwtAuthGuard)
     @Get()
     async findAll(): Promise<Todo[]> {
         return this.todoService.getAllTodos();

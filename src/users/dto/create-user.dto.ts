@@ -16,5 +16,5 @@ export class CreateUserDto {
 
     @IsNotEmpty()
     @IsString()
-    readonly password_hash: boolean;
+    readonly password_hash: string;
 }
