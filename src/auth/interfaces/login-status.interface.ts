@@ -1,4 +1,4 @@
 export interface LoginStatus {
-    username: string;
+    user: any;
     token: string;
 }
